@@ -1,0 +1,11 @@
+body{
+	background-color: pink;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+}
+.tune_heading{
+	color: blue;
+	font-family: roboto;
+}
