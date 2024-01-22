@@ -7,8 +7,45 @@
 <body>
 <h1>Customer Home</h1>
 </br>
+<div th:unless="${isPrimium}" class="non-primium">
 <a href="/pay">GET PREMIUM</a>
 </br>
 <a href="/logout">Logout</a>
+</div>
+
+<div th:if="${isPrimium}"  class="primium">
+<table border="8">
+<style type="text/css">
+iframe {
+	height: 100px;
+	width: 700px;
+}
+</style>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Artist</th>
+			<th>Genre</th>
+			<th>Play</th>
+		</tr>
+	</thead>
+<tbody>
+		<tr  th:each="song:${songs}">
+			<td th:text="${song.name}"></td>
+			<td th:text="${song.artist}"></td>
+			<td th:text="${song.genre}"></td>
+			
+			<!--
+			this line shows the link of the play list
+			<th th:utext="${song.link}"></th>-->
+			<td>
+			<audio controls><source th:src="${song.link}" type="audio/mpeg"></audio>
+			</td>
+		</tr>
+		
+</tbody>
+</table>
+</div>
+
 </body>
 </html>
