@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.tunehub.entity.LoginData;
+import com.tunehub.entity.RegisterData;
 import com.tunehub.entity.Song;
 import com.tunehub.entity.Users;
 import com.tunehub.service.SongService;
@@ -16,6 +17,7 @@ import com.tunehub.service.UserService;
 import jakarta.servlet.http.HttpSession;
 
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,16 +32,27 @@ public class UserController {
 	SongService ss;
 	
 	@PostMapping("/register")
-	public String addUser(@ModelAttribute Users user)
+	public String addUser(@RequestBody RegisterData data)
 	{	
-		Boolean userStatus=us.emailExist(user.getEmail());
+		String userName = data.getUserName();
+	    String email = data.getEmail();
+	    String password = data.getPassword();
+	    String gender = data.getGender();
+	    String role = data.getRole();
+	    String address = data.getAddress();
+	    
+		Boolean userStatus=us.emailExist(email);
 		if(userStatus==false) {
+			Users user=new Users();
+			 user.setUserName(userName);
+		        user.setEmail(email);
+		        user.setPassword(password);
+		        user.setGender(gender);
+		        user.setRole(role);
+		        user.setAddress(address);
 			us.addUser(user);
+			return "new";
 		}
-		else {
-			System.out.println("User Already Exist");
-		}
-		
 		return "home";   
 	}
 	
@@ -47,12 +60,12 @@ public class UserController {
 	//public String validation(@RequestParam("email") String email,@RequestParam("password") String password
 	//,HttpSession session, Model model) insteed of the code to change the below
 	public String validation(@RequestBody LoginData data,HttpSession session, Model model) {
-		System.out.println("call Recied");
+		
 		//extract the email and password
 		String email=data.getEmail();
 		String password=data.getPassword();
-	
-		if(us.validUser(email,password)==true) {
+		boolean validUser=us.validUser(email,password);
+		if(validUser==true) {
 			String role=us.getRole(email);
 			
 			session.setAttribute("email", email);
