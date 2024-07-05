@@ -1,11 +1,22 @@
-body{
-	background-color: pink;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+
+body {
+  background-color: #000000;
+  font-family: Roboto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.main_head{
+	color:white;
+	text-align:center;
+}
+.info{
+	color:white;
+	font-family:roboto;
 	
 }
-.tune_heading{
-	color: blue;
-	font-family: roboto;
+.details{
+	color:#c0c0c0;
+	font-family:roboto;
+	
 }

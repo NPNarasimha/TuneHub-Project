@@ -1,6 +1,5 @@
 package com.tunehub.entity;
 
-
 public class LoginData {
 String email;
 String password;

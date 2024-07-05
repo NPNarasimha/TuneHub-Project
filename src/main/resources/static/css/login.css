@@ -1,0 +1,30 @@
+body{
+	backGround-image:linear-gradient(to left, #000000,pink);
+	font-family: Roboto;
+	margin-top:24vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  
+	
+}
+.info{
+	color:white;
+	font-family:roboto;
+}
+.sub_btn{
+	hight:12px;
+	width:15vh;
+	background-color:black;
+	color:white;
+	padding:5px;
+	text-align:center;
+	margin-left:10vh;
+	
+}
+.signup{
+	color:#ffffff;
+	margin-left:22vh;
+	font-size:15px;
+}

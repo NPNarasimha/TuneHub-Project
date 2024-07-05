@@ -1,20 +1,41 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Login Page</title>
+<link rel="stylesheet" th:href="@{/css/login.css}">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Audiowide">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Sofia">
 </head>
-<body>
-<h1>Enter the login details: </h1>
-<form action="/login" method="post">
-<label>Email : </label>
-<input type="email" name="email" placeholder="Enter E-mail">
-</br></br>
-<label>password : </label>
-<input type="password" name="password" placeholder="Enter password">
-</br></br>
 
-<input type="submit" value="Login"> 
-</form>
+<body>
+				<form action="login" method="post">
+					<div class="info">
+					<div>
+					
+					<h1>Log in to TuneHub</h1>
+						<label >E-mail : </label> <input type="text" name="email" /> 
+						<br><br>
+						<label>Password : </label> <input type="password" name="password" />
+						<br><br>
+					</div>
+						 <input class="sub_btn" type="submit" value="login" />
+					</div>
+
+					<div class="signup">
+					<p>New user : <a href="register" >Sign Up</a></p>
+					
+					</div>
+					
+				</form>
+			</div>
+
+		</div>
+
+	
 </body>
+
 </html>

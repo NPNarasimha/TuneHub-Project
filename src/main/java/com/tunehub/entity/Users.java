@@ -86,7 +86,4 @@ public boolean isPrimium() {
 public void setPrimium(boolean isPrimium) {
 	this.isPrimium = isPrimium;
 }
-
-
-
 }
